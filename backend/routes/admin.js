@@ -1,0 +1,7 @@
+const router=require('express').Router(); const db=require('../config/db'); const {auth,adminOnly}=require('../middleware/auth');
+router.use(auth,adminOnly);
+router.get('/stats',async(req,res)=>{const [[users]] = await db.query('SELECT COUNT(*) total FROM users WHERE role="user"');const [[moods]]=await db.query('SELECT COUNT(*) total FROM mood_entries');const [[journals]]=await db.query('SELECT COUNT(*) total FROM journal_entries');const [[bookings]]=await db.query('SELECT COUNT(*) total FROM bookings');res.json({users:users.total,moods:moods.total,journals:journals.total,bookings:bookings.total})});
+router.get('/users',async(req,res)=>{const [rows]=await db.query('SELECT id,name,email,role,created_at FROM users ORDER BY created_at DESC');res.json(rows)});
+router.get('/bookings',async(req,res)=>{const [rows]=await db.query(`SELECT b.id,u.name user_name,u.email,c.name counselor,b.booking_date,b.booking_time,b.status,b.reason FROM bookings b JOIN users u ON u.id=b.user_id JOIN counselors c ON c.id=b.counselor_id ORDER BY b.created_at DESC`);res.json(rows)});
+router.patch('/bookings/:id',async(req,res)=>{const {status}=req.body;if(!['pending','confirmed','completed','cancelled'].includes(status))return res.status(400).json({message:'Invalid status'});await db.query('UPDATE bookings SET status=? WHERE id=?',[status,req.params.id]);res.json({message:'Booking updated'})});
+module.exports=router;

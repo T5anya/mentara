@@ -1,0 +1,15 @@
+export const features = [
+  { icon: '💬', title: 'Daily Affirmations', text: 'Gentle reminders to help you slow down, reset and be kinder to yourself.', path: '/affirmations', action: 'Explore' },
+  { icon: '📖', title: 'Healing Poetry', text: 'Read short poems and reflective writing when you need a quiet moment.', path: '/poetry', action: 'Read' },
+  { icon: '🎮', title: 'Calming Games', text: 'Simple mindful activities designed for a few minutes of low-pressure play.', path: '/games', action: 'Play' },
+  { icon: '📝', title: 'Personal Journal', text: 'Write privately, reflect on your day and keep your thoughts in one place.', path: '/journal', action: 'Write' },
+  { icon: '✏️', title: 'Scribble Pad', text: 'Draw, doodle or release a feeling visually without needing the right words.', path: '/scribble', action: 'Draw' },
+  { icon: '🎶', title: 'Relaxing Music', text: 'Create a calmer atmosphere with ambient sound and simple playlists.', path: '/music', action: 'Listen' },
+  { icon: '🌬️', title: 'Breathing Coach', text: 'Follow a gentle breathing rhythm and take a short reset.', path: '/breathing', action: 'Start' },
+  { icon: '📊', title: 'Mood Tracker', text: 'Log how you feel and build a simple picture of your emotional patterns.', path: '/tracker', action: 'Track' },
+  { icon: '🧘', title: 'Focus Mode', text: 'Use a quiet timer and distraction-free space for focused work or rest.', path: '/focus', action: 'Focus' },
+  { icon: '🌙', title: 'Sleep Stories', text: 'Settle down with a peaceful story or audio-friendly wind-down page.', path: '/music', action: 'Wind down' },
+  { icon: '🗓️', title: 'Counseling Booking', text: 'Browse available support sessions and request a suitable time.', path: '/booking', action: 'Book' },
+  { icon: '📚', title: 'Resources Hub', text: 'Find practical guides, articles and support material in one place.', path: '/resources', action: 'Visit' },
+  { icon: '🤝', title: 'Support Circle', text: 'Explore anonymous peer-support ideas and community guidelines.', path: '/circle', action: 'Explore' },
+];
